@@ -4,47 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="form.css">
+    <!-- Link to external JavaScript file -->
+    <script src="form.js" defer></script>
 </head>
 <body>
-    <h2>Registration Form</h2>
-    <form action="/submit_registration" method="post">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName2" required><br><br>
+    <div class="container"></div>
+        <h2>Registration Form</h2>
+        <form>
+            <!-- First Name input field -->
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
 
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" required><br><br>
+            <!-- Last Name input field -->
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
 
-        <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" required><br><br>
+            <!-- Email Address input field -->
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" minlength="8" required><br><br>
+            <!-- Password input field -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
 
-        <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
+            <!-- Confirm Password input field -->
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+            </div>
 
-        <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" name="dob" required><br><br>
+            <!-- Date of Birth input field -->
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
 
-        <label>Gender:</label>
-        <input type="radio" id="male" name="gender" value="male">
-        <label for="male">Male</label>
-        <input type="radio" id="female" name="gender" value="female">
-        <label for="female">Female</label>
-        <input type="radio" id="other" name="gender" value="other">
-        <label for="other">Other</label><br><br>
+            <!-- Gender selection radio buttons -->
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="gender-group">
+                    <div class="gender-option">
+                        <input type="radio" id="male" name="gender" value="male">
+                        <label for="male">Male</label>
+                    </div>
+                    <div class="gender-option">
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+                    </div>
+                    <div class="gender-option">
+                        <input type="radio" id="lgbtq" name="gender" value="lgbtq">
+                        <label for="lgbtq">LGBTQ</label>
+                    </div>
+                </div>
+            </div>
 
-        <label for="aboutMe">About Me:</label><br>
-        <textarea id="aboutMe" name="aboutMe" rows="4" cols="50"></textarea><br><br>
+            <!-- About Me textarea -->
+            <div class="form-group">
+                <label for="about">About Me</label>
+                <textarea id="about" name="about"></textarea>
+            </div>
 
-        <label for="profession">Choose Your Profession:</label>
-        <select id="profession" name="profession">
-            <option value="webDevelopment">Web Development</option>
-            <option value="dataAnalytics">Data Analytics</option>
-            <option value="uiUxDesign">UI/UX Design</option>
-        </select><br><br>
+            <!-- Profession selection dropdown -->
+            <div class="form-group">
+                <label for="profession">Choose Your Profession</label>
+                <select id="profession" name="profession" class="profession-select">
+                    <option value="">Select a profession</option>
+                    <option value="webdev">Web Development</option>
+                    <option value="analytics">Data Analytics</option>
+                    <option value="uiux">UI/UX Design</option>
+                </select>
+            </div>
 
-        <input type="submit" value="Register">
-    </form>
+            <!-- Submit button -->
+            <button type="submit">Register</button>
+        </form>
+    </div>
 </body>
 </html>
