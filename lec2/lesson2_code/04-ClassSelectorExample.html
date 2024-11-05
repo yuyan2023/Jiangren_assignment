@@ -7,14 +7,23 @@
     <title>利用类选择器画三个盒子</title>
     <style>
       /* 节省代码，统一修改 */
-      /* 根据文字提示给元素加背景颜色，宽高 */
-     
+      /* 根据文字提示给元素加背景颜色，宽高 100px 100px*/
+     .box {
+       width: 100px;
+       height: 100px;
+     }
+      .red {
+        background-color: red;
+      }
+      .blue {
+        background-color: blue;
+      }
     </style>
   </head>
   <body>
     <!-- .box*3 -->
-   <div >red hello world</div>
-   <div >blue hello world</div>
-   <div >red hello world</div>
+   <div class="red box">red hello world</div>
+   <div class="blue box">blue hello world</div>
+   <div class="red box">red hello world</div>
   </body>
 </html>
