@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>相对定位</title>
+    <style>
+      /* position默认值是static  标准流布局展示 */
+      /* 相对定位position:relative,以自己原来的位置来移动*/
+      /* 无论元素是否进行移动，元素依然占据原来的空间 */
+      .box1 {
+        position: relative;
+        top:100px;
+        left:100px;
+        width: 200px;
+        height: 200px;
+        background-color: pink;
+      }
+      .box2 {
+        width: 200px;
+        height: 200px;
+        background-color: deeppink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+  </body>
+</html>

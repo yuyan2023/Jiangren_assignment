@@ -1,0 +1,21 @@
+/* 限定媒体类型 print 打印设备 */
+@media print {
+  body {
+    font-size: 10pt;
+  }
+}
+/* <=600px background:yellow
+<=1200px background: darkmagenta */
+/* 后面的@media范围不应该包含前面的范围 ，不然后面的样式会覆盖前面的样式*/
+
+@media screen and (max-width: 1200px) {
+  body {
+    background-color: darkmagenta;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    background-color: yellow;
+  }
+}

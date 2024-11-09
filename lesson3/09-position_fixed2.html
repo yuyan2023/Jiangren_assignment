@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>固定定位小技巧-固定到版心右侧</title>
+    <style>
+      .container {
+        width:800px;
+        height: 1400px;
+        background-color: skyblue;
+        margin:0 auto;
+      }
+      .fixed {
+        width: 50px;
+        height: 150px;
+        background-color: purple;
+        position: fixed;
+        left:50%;
+        margin-left:405px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fixed"></div>
+    <div class="container">blue box</div>
+  </body>
+</html>

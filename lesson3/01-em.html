@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 子元素的字体大小的em是相对于父元素的字体大小.
+          元素的width/height/padding/margin用em的话是相对于该元素的font-size */
+      .parent {
+        /* 400px 400px */
+        font-size: 40px;
+        width: 10em;
+        height: 10em;
+        border:solid 1px blue
+      }
+      .child {
+        /* 20px 200px 200px */
+        font-size: 0.5em;
+        width: 10em;
+        height: 10em;
+        border:solid 1px red;
+      }
+      .grandchild {
+        /* 10px 100px 100px */
+        font-size: 0.5em;
+        width: 10em;
+        height: 10em;
+        border:solid 1px black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      parent
+      <div class="child">
+        child
+        <div class="grandchild">grandchild</div>
+      </div>
+    </div>
+  </body>
+</html>

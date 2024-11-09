@@ -1,0 +1,10 @@
+node -v
+npm -v
+npm i -g sass
+sass
+
+sass scss/style.scss:css/style.css
+sass --watch scss:css
+
+
+install easy-sass in vscode

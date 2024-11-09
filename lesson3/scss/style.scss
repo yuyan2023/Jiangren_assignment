@@ -1,0 +1,107 @@
+body {
+    font-size: 15px;
+    color:blue;
+}
+
+//nesting
+ul {
+    font-size:20px;
+    li {
+        list-style: none;
+    }
+}
+
+//variable - _默认一样。但是尽量用一样的符号
+// $card__name--like  $card__name__like
+$primary-color:#555;
+$secondary-color:blue;
+$local-color:red;
+div.box {
+    background-color: $primary-color;
+    color:$secondary-color;
+    .child-box {
+        color:$local-color;
+    }
+}
+
+$primary-border:1px solid $primary-color;
+h2.page-header {
+    border: $primary-border;
+}
+
+//nesting &指向父选择器
+.nav {
+    height: 100px;
+    ul {
+        margin:0;
+        li {
+            padding: 5px;
+            a {
+                display: block;
+                &:hover{
+                    background-color: blue;
+                }
+            }
+        }
+    }
+}
+
+//minxin
+@mixin alert {
+    color:#000;
+    a {
+        color:pink
+    }
+}
+
+.alert-warning {
+    @include alert;
+}
+
+@mixin alert2($text-color, $background){
+    color: $text-color;
+    background-color: $background;
+}
+
+.alert-info {
+    @include alert2(#333,green)
+}
+.container {
+    .alert-danger {
+        @include alert2(red,blue)
+    }
+}
+
+//@extend 让一个选择器继承另个选择器所有的样式
+.button {
+    width: 200px;
+    height: 300px;
+}
+
+.button-info {
+    @extend .button;
+    background-color: #000;
+}
+
+%ir {
+    font-weight: bold;
+    color:red
+}
+
+.important-text {
+    @extend %ir;
+}
+
+//partials @import
+@import 'base';
+h3 {
+    color:$color;
+}
+
+//@each  #{}
+
+@each $animal in cat, dog, pig {
+    .#{$animal}-icon {
+        background-image: url('/image/#{$animal}.png');
+    }
+}

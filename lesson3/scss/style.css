@@ -1,0 +1,90 @@
+body {
+  font-size: 15px;
+  color: blue;
+}
+
+ul {
+  font-size: 20px;
+}
+ul li {
+  list-style: none;
+}
+
+div.box {
+  background-color: #555;
+  color: blue;
+}
+div.box .child-box {
+  color: red;
+}
+
+h2.page-header {
+  border: 1px solid #555;
+}
+
+.nav {
+  height: 100px;
+}
+.nav ul {
+  margin: 0;
+}
+.nav ul li {
+  padding: 5px;
+}
+.nav ul li a {
+  display: block;
+}
+.nav ul li a:hover {
+  background-color: blue;
+}
+
+.alert-warning {
+  color: #000;
+}
+.alert-warning a {
+  color: pink;
+}
+
+.alert-info {
+  color: #333;
+  background-color: green;
+}
+
+.container .alert-danger {
+  color: red;
+  background-color: blue;
+}
+
+.button, .button-info {
+  width: 200px;
+  height: 300px;
+}
+
+.button-info {
+  background-color: #000;
+}
+
+.important-text {
+  font-weight: bold;
+  color: red;
+}
+
+.container {
+  padding: 0;
+}
+
+h3 {
+  color: red;
+}
+
+.cat-icon {
+  background-image: url("/image/cat.png");
+}
+
+.dog-icon {
+  background-image: url("/image/dog.png");
+}
+
+.pig-icon {
+  background-image: url("/image/pig.png");
+}/*# sourceMappingURL=style.css.map */

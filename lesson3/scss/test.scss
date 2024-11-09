@@ -1,0 +1,24 @@
+$hightlightColor:#fff;
+
+h2 {
+    color:$hightlightColor;
+    font-size: 40px;
+}
+
+ul {
+    font-size: 16px;
+    li {
+        list-style: none;
+    }
+}
+
+@mixin style($size:16px,$color:#fff){
+    font-size: $size;
+    color: $color;
+    line-height: 1.5;
+}
+
+.content {
+    @include style(20px,#555 );
+    margin:0 auto;
+}
