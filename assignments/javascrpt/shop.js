@@ -9,15 +9,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // 添加商品
 function addItem() {
+    // 获取输入值
     const name = document.getElementById('itemName').value;
     const price = parseFloat(document.getElementById('itemPrice').value);
     const quantity = parseInt(document.getElementById('itemQuantity').value);
 
+    // 验证输入
     if (!name || !price || !quantity) {
         alert('请填写完整的商品信息！');
         return;
     }
 
+    // 创建商品对象
     const item = {
         id: Date.now(),
         name: name,
@@ -26,6 +29,7 @@ function addItem() {
         date: new Date()
     };
 
+    // 添加到列表
     shoppingList.push(item);
     saveToLocalStorage();
     updateList();
@@ -50,23 +54,6 @@ function searchItems() {
     displayItems(filteredList);
 }
 
-// 按价格排序
-function sortByPrice() {
-    shoppingList.sort((a, b) => a.price - b.price);
-    updateList();
-}
-
-// 按名称排序
-function sortByName() {
-    shoppingList.sort((a, b) => a.name.localeCompare(b.name));
-    updateList();
-}
-
-// 更新列表显示
-function updateList() {
-    displayItems(shoppingList);
-}
-
 // 显示商品列表
 function displayItems(items) {
     const listElement = document.getElementById('shoppingList');
@@ -88,12 +75,19 @@ function displayItems(items) {
     });
 }
 
+// 更新列表显示
+function updateList() {
+    displayItems(shoppingList);
+}
+
 // 更新统计信息
 function updateSummary() {
+    // 计算总金额
     const totalAmount = shoppingList.reduce((sum, item) => 
         sum + (item.price * item.quantity), 0
     );
     
+    // 更新显示
     document.getElementById('totalAmount').textContent = 
         `¥${totalAmount.toFixed(2)}`;
     document.getElementById('totalItems').textContent = 
