@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物清单管理系统</title>
+    <link rel="stylesheet" href="shop.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>购物清单管理系统</h1>
+        </header>
+
+        <!-- 添加商品区域 -->
+        <section class="add-section">
+            <h2>添加商品</h2>
+            <div class="input-group">
+                <input type="text" id="itemName" placeholder="商品名称">
+                <input type="number" id="itemPrice" placeholder="价格">
+                <input type="number" id="itemQuantity" placeholder="数量">
+                <button onclick="addItem()">添加</button>
+            </div>
+        </section>
+
+        <!-- 搜索区域 -->
+        <section class="search-section">
+            <h2>搜索商品</h2>
+            <div class="input-group">
+                <input type="text" id="searchInput" placeholder="输入商品名称">
+                <button onclick="searchItems()">搜索</button>
+            </div>
+        </section>
+
+        <!-- 商品列表区域 -->
+        <section class="list-section">
+            <div class="list-header">
+                <h2>商品列表</h2>
+                <div class="sort-buttons">
+                    <button onclick="sortByPrice()">按价格排序</button>
+                    <button onclick="sortByName()">按名称排序</button>
+                </div>
+            </div>
+            <ul id="shoppingList" class="shopping-list">
+                <!-- 商品列表将通过JavaScript动态生成 -->
+            </ul>
+        </section>
+
+        <!-- 统计信息 -->
+        <section class="summary-section">
+            <div class="summary-box">
+                <h3>总金额</h3>
+                <p id="totalAmount">¥0.00</p>
+            </div>
+            <div class="summary-box">
+                <h3>商品数量</h3>
+                <p id="totalItems">0</p>
+            </div>
+        </section>
+    </div>
+    <script src="shop.js"></script>
+</body>
+</html>
