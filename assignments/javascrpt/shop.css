@@ -146,17 +146,3 @@ button:hover {
     color: #4CAF50;
 }
 
-@media (max-width: 768px) {
-    .input-group {
-        flex-direction: column;
-    }
-    
-    .summary-section {
-        grid-template-columns: 1fr;
-    }
-
-    .list-header {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
