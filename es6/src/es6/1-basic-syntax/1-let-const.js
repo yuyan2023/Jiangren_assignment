@@ -42,11 +42,9 @@ console.log(name);
 // let userName = 'xiaofei-zhang';//报错，因为前面已经用var声明了同名变量
 // console.log(userName);
 
-function testScope() {
-    // console.log(name);//这里会怎么样？let不会做变量提升
-    let name = "damoqiongqiu";
+function testScope(){
+    var userName = 'xiaofei-zhang';
 }
-console.log(name);
 
 {
     function test() {
