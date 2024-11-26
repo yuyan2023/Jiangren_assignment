@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳大利亚个人所得税计算器</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>澳大利亚个人所得税计算器</h1>
+        
+        <div class="calculator">
+            <div class="input-group">
+                <label for="income">年收入 (AUD)</label>
+                <div class="input-wrapper">
+                    <span class="currency">$</span>
+                    <input type="number" id="income" placeholder="请输入年收入" min="0" step="1000">
+                </div>
+            </div>
+
+            <button id="calculate">计算税额</button>
+
+            <div class="results">
+                <div class="result-item">
+                    <label>应缴税额:</label>
+                    <span id="tax-amount">$0.00</span>
+                </div>
+                <div class="result-item">
+                    <label>税后收入:</label>
+                    <span id="after-tax">$0.00</span>
+                </div>
+                <div class="result-item">
+                    <label>平均税率:</label>
+                    <span id="tax-rate">0%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tax-brackets">
+            <h2>税率表</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>应税收入范围</th>
+                        <th>税率</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>$0 - $18,200</td>
+                        <td>0%</td>
+                    </tr>
+                    <tr>
+                        <td>$18,201 - $45,000</td>
+                        <td>19%</td>
+                    </tr>
+                    <tr>
+                        <td>$45,001 - $120,000</td>
+                        <td>32.5%</td>
+                    </tr>
+                    <tr>
+                        <td>$120,001 - $180,000</td>
+                        <td>37%</td>
+                    </tr>
+                    <tr>
+                        <td>$180,001及以上</td>
+                        <td>45%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
