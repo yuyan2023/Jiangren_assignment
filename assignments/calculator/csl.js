@@ -1,76 +1,69 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>澳大利亚个人所得税计算器</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>澳大利亚个人所得税计算器</h1>
-        
-        <div class="calculator">
-            <div class="input-group">
-                <label for="income">年收入 (AUD)</label>
-                <div class="input-wrapper">
-                    <span class="currency">$</span>
-                    <input type="number" id="income" placeholder="请输入年收入" min="0" step="1000">
-                </div>
-            </div>
+document.addEventListener('DOMContentLoaded', function() {
+    const incomeInput = document.getElementById('income');
+    const calculateButton = document.getElementById('calculate');
+    const taxAmountElement = document.getElementById('tax-amount');
+    const afterTaxElement = document.getElementById('after-tax');
+    const taxRateElement = document.getElementById('tax-rate');
 
-            <button id="calculate">计算税额</button>
+    function calculateTax(income) {
+        if (income <= 18200) {
+            return 0;
+        } else if (income <= 45000) {
+            return (income - 18200) * 0.19;
+        } else if (income <= 120000) {
+            return 5092 + (income - 45000) * 0.325;
+        } else if (income <= 180000) {
+            return 29467 + (income - 120000) * 0.37;
+        } else {
+            return 51667 + (income - 180000) * 0.45;
+        }
+    }
 
-            <div class="results">
-                <div class="result-item">
-                    <label>应缴税额:</label>
-                    <span id="tax-amount">$0.00</span>
-                </div>
-                <div class="result-item">
-                    <label>税后收入:</label>
-                    <span id="after-tax">$0.00</span>
-                </div>
-                <div class="result-item">
-                    <label>平均税率:</label>
-                    <span id="tax-rate">0%</span>
-                </div>
-            </div>
-        </div>
+    function formatCurrency(amount) {
+        return new Intl.NumberFormat('en-AU', {
+            style: 'currency',
+            currency: 'AUD',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }).format(amount);
+    }
 
-        <div class="tax-brackets">
-            <h2>税率表</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>应税收入范围</th>
-                        <th>税率</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>$0 - $18,200</td>
-                        <td>0%</td>
-                    </tr>
-                    <tr>
-                        <td>$18,201 - $45,000</td>
-                        <td>19%</td>
-                    </tr>
-                    <tr>
-                        <td>$45,001 - $120,000</td>
-                        <td>32.5%</td>
-                    </tr>
-                    <tr>
-                        <td>$120,001 - $180,000</td>
-                        <td>37%</td>
-                    </tr>
-                    <tr>
-                        <td>$180,001及以上</td>
-                        <td>45%</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+    function formatPercentage(value) {
+        return new Intl.NumberFormat('en-AU', {
+            style: 'percent',
+            minimumFractionDigits: 1,
+            maximumFractionDigits: 1
+        }).format(value);
+    }
+
+    function updateResults() {
+        const income = parseFloat(incomeInput.value) || 0;
+        const tax = calculateTax(income);
+        const afterTax = income - tax;
+        const taxRate = income > 0 ? tax / income : 0;
+
+        taxAmountElement.textContent = formatCurrency(tax);
+        afterTaxElement.textContent = formatCurrency(afterTax);
+        taxRateElement.textContent = formatPercentage(taxRate);
+    }
+
+    // 添加输入验证
+    incomeInput.addEventListener('input', function() {
+        if (this.value < 0) {
+            this.value = 0;
+        }
+    });
+
+    // 计算按钮点击事件
+    calculateButton.addEventListener('click', updateResults);
+
+    // 回车键触发计算
+    incomeInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            updateResults();
+        }
+    });
+
+    // 初始化显示
+    updateResults();
+});
