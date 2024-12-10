@@ -5,20 +5,45 @@ document.addEventListener('DOMContentLoaded', function() {
     const afterTaxElement = document.getElementById('after-tax');
     const taxRateElement = document.getElementById('tax-rate');
 
-    function calculateTax(income) {
-        if (income <= 18200) {
-            return 0;
-        } else if (income <= 45000) {
-            return (income - 18200) * 0.19;
-        } else if (income <= 120000) {
-            return 5092 + (income - 45000) * 0.325;
-        } else if (income <= 180000) {
-            return 29467 + (income - 120000) * 0.37;
-        } else {
-            return 51667 + (income - 180000) * 0.45;
-        }
-    }
+    const taxCalculation = (income) => {
 
+        let tax = 0;
+      
+        const taxTable =
+      
+          [
+      
+            { min: 0, max: 18200, calculation(income) { return 0; } },
+      
+            { min: 18201, max: 45000, calculation(income) { return parseFloat((income - 18200) * 0.19); } },
+      
+            { min: 45001, max: 120000, calculation(income) { return parseFloat((income - 45000) * 0.325 + 5092); } },
+      
+            { min: 120001, max: 180000, calculation(income) { return parseFloat((income - 120000) * 0.37 + 29567); } },
+      
+            { min: 180001, max: Infinity, calculation(income) { return parseFloat((income - 180000) * 0.45 + 51667); } },
+      
+          ];
+      
+        taxTable.forEach(element => {
+      
+          if (income >= element.min && income <= element.max) {
+      
+            tax = element.calculation(income);
+      
+          }
+      
+        });
+      
+       
+      
+        return tax;
+      
+      }
+      
+    
+      
+    
     function formatCurrency(amount) {
         return new Intl.NumberFormat('en-AU', {
             style: 'currency',
